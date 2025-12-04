@@ -1,0 +1,269 @@
+/*
+    ======================================
+    0. IMPORTAÇÃO DA FONTE TINOS
+    ======================================
+*/
+@import url('https://fonts.googleapis.com/css2?family=Tinos&display=swap'); 
+
+/*
+    ======================================
+    1. ESTILOS BASE E EFEITOS ESTRUTURAIS
+    ======================================
+*/
+html, body {
+    height: auto; 
+    margin: 0; 
+}
+
+/* --- Body: Fundo de Tela (Gradiente Animado para Contraste) --- */
+body {
+    /* Gradiente com tons quentes para manter a seriedade (Taupe claro) */
+    background: linear-gradient(135deg, #DEDAD4, #D3D0CB, #DEDAD4); /* Tons quentes e sóbrios */
+    background-size: 400% 400%; 
+
+    /* Aplica a animação de movimento lento */
+    animation: gradientMovement 15s ease infinite; 
+    
+    font-family: 'Tinos', serif; 
+    color: #333; 
+    line-height: 1.6;
+}
+
+/* --- Container Principal (#curriculo-container): Papel Virtual --- */
+#curriculo-container {
+    /* --- Efeito de Papel (Fundo e Sombra) --- */
+    background-color: #F0F0F0; /* Fundo do Papel */
+    max-width: 900px; 
+    
+    /* Altura ajusta-se ao conteúdo */
+    margin: 40px auto; 
+    padding: 35px 45px; 
+    
+    /* Sombra base e cantos arredondados */
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.15), 
+        0 12px 40px rgba(0, 0, 0, 0.08); 
+    
+    border-radius: 10px; 
+
+    /* PREPARAÇÃO PARA A TRANSIÇÃO SUAVE (para o efeito hover) */
+    transition: all 0.3s ease-in-out; 
+
+    /* --- Ajustes de Posicionamento --- */
+    position: relative;
+    overflow: hidden; 
+}
+
+/* --- EFEITO AO PASSAR O MOUSE (Apenas CSS) --- */
+#curriculo-container:hover {
+    /* Faz o papel subir e aumentar ligeiramente (efeito de profundidade) */
+    transform: scale(1.01) translateY(-5px); 
+    
+    /* Aumenta a sombra */
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.25), 
+        0 25px 50px rgba(0, 0, 0, 0.15); 
+}
+
+
+/* Garante que o conteúdo do texto fique acima do fundo */
+header, main {
+    position: relative; 
+    z-index: 2; 
+}
+
+
+/*
+    ======================================
+    2. ESTILOS DE TIPOGRAFIA E LAYOUT (Imitando PDF)
+    ======================================
+*/
+
+/* --- Cabeçalho (Nome e Título) --- */
+header {
+    padding-bottom: 20px;
+    border-bottom: 2px solid #333; 
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5em; 
+    margin: 0 0 5px 0;
+    color: #000;
+    text-align: center;
+}
+
+header h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #444;
+    margin: 0;
+    text-align: center;
+}
+
+/* --- Informações de Contato (Address) --- */
+address {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-style: normal; 
+    font-size: 0.9em;
+    text-align: center;
+}
+
+address p {
+    margin: 3px 0;
+}
+
+address a {
+    color: #000;
+    text-decoration: none;
+}
+
+address a:hover {
+    text-decoration: underline;
+    color: #0077b5;
+}
+
+/* --- Títulos das Seções (Resumo, Experiências, etc.) --- */
+main section h3 {
+    font-size: 1.4em;
+    color: #222;
+    margin: 25px 0 5px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Linha horizontal (HR) para separação das seções */
+main section hr {
+    border: none;
+    border-top: 1px solid #aaa9a9;
+    margin: 0 0 15px 0;
+}
+
+/* --- Experiências e Educação (Article) --- */
+article {
+    margin-bottom: 25px;
+}
+
+/* Flexbox para alinhar título e detalhes na mesma linha */
+.job-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+}
+
+/* Estilo para o bloco de Localização e Data */
+.job-details {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+    
+    font-size: 0.95em; 
+    color: #555;
+}
+
+article h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin: 0; 
+    max-width: 70%; 
+    padding-top: 3px; 
+}
+
+article h5 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #555;
+    margin: 5px 0;
+}
+
+article p {
+    margin: 0; 
+    font-size: 0.95em;
+}
+
+/* Força os parágrafos dentro de job-details a terem 0 margem para ficarem colados */
+.job-details p {
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Garante que o parágrafo de resumo/descrição (fora do job-details) volte a ter a margem padrão */
+section p {
+    margin: 5px 0 0 0;
+}
+
+
+/* --- Listas (Experiências e Habilidades) --- */
+ul {
+    list-style-type: disc;
+    margin: 10px 0 10px 20px;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 5px;
+    font-size: 0.95em;
+}
+
+/* ======================================
+    3. HABILIDADES (Estilos e Dinamismo)
+    ======================================
+*/
+
+/* --- Habilidades (Lista em linha ou colunas) --- */
+#curriculo-container section:last-of-type ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+}
+
+/* --- Estilo Base dos Botões de Habilidade --- */
+#curriculo-container section:last-of-type ul li {
+    background-color: #F5F5F5; 
+    padding: 5px 10px;
+    border-radius: 0; /* Borda não arredondada */
+    
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+    
+    transition: background-color 0.2s ease, transform 0.2s ease; 
+}
+
+/* Espaçamento e cor para o Ícone do Font Awesome */
+#curriculo-container section:last-of-type ul li i {
+    margin-right: 5px; 
+    color: #0077b5; /* Cor de destaque para o ícone */
+}
+
+/* --- Dinamismo (Efeito Hover - Apenas CSS) --- */
+#curriculo-container section:last-of-type ul li:hover {
+    transform: translateY(-2px); /* Efeito de elevação */
+    background-color: #E0E0E0; 
+    color: #333; 
+    cursor: pointer; 
+}
+
+
+/* ======================================
+    4. ANIMAÇÃO DE FUNDO
+    ======================================
+*/
+@keyframes gradientMovement {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
